@@ -1,0 +1,27 @@
+{
+  // Pulls the app-source.zip of Maximo Mobile / MAF apps from the OSLCMAFAPPDATA object structure
+  // (standard REST API, where appid = app) and extracts it per app into apps/<APP>/.
+  // Add one source per app. Right-click this folder in the Maximo Developer view and choose
+  // "Inspect Source" to see the record and where its app-source.zip was found.
+  "name": "Mobile App Source",
+  "server": {
+    "url": "https://your-mas-host/maximo",
+    "apiKeySecret": "maximo-dev",
+    "allowSelfSigned": false,
+    "timeoutSeconds": 300
+  },
+  "ignoreLineEndings": true,
+  "sources": [
+    {
+      "id": "techmobile",
+      "type": "mafApp",
+      "app": "TECHMOBILE",
+      // "version": "8.10.0.0",           // optional: pin a version (default: highest)
+      // "appAttribute": "appid",          // attribute holding the app name
+      // "fileName": "app-source.zip",     // attachment to look for
+      "exclude": ["**/node_modules/**", "**/.DS_Store", "**/__MACOSX/**"],
+      "targetPath": "apps/TECHMOBILE"
+    }
+    // ,{ "id": "inspection", "type": "mafApp", "app": "INSPECTION", "targetPath": "apps/INSPECTION" }
+  ]
+}

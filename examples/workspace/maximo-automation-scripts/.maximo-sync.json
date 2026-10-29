@@ -1,0 +1,26 @@
+{
+  // Pulls every automation script with its launch points using only the standard Maximo REST API
+  // (MXAPIAUTOSCRIPT). On apply, files are written as:
+  //   scripts/Object/WORKORDER/VZ_WO_SAVE.py
+  //   scripts/Attribute/ASSET/...   scripts/Action/...   scripts/CustomCondition/...
+  //   scripts/Standalone/...        (scripts with no launch point)
+  //   scripts/_manifest.json        (every script with all of its launch points)
+  "name": "Automation Scripts",
+  "server": {
+    "url": "https://your-mas-host/maximo",
+    "apiKeySecret": "maximo-dev",       // set with "Maximo Developer: Set API Key"; never put the key here
+    "allowSelfSigned": false,
+    "timeoutSeconds": 300
+  },
+  "ignoreLineEndings": true,
+  "sources": [
+    {
+      "id": "scripts",
+      "type": "automationScripts",
+      "where": "",                       // optional OSLC filter, e.g. autoscript="VZ_%"
+      "keys": [],                        // optional: only these scripts
+      "groupBy": "launchPoint",          // or "none" for a flat folder
+      "targetPath": "scripts"
+    }
+  ]
+}

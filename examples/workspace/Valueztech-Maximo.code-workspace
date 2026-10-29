@@ -1,0 +1,28 @@
+{
+  "folders": [
+    { "name": "Automation Scripts (Maximo sync)", "path": "maximo-automation-scripts" },
+    { "name": "Mobile App Source (Maximo sync)", "path": "maximo-code-package" },
+    { "name": "Integrations (local only)", "path": "maximo-integrations" }
+  ],
+  "settings": {
+    "files.associations": { ".maximo-sync.json": "jsonc" },
+    "files.exclude": { "**/.maximo-sync": true },
+    "search.exclude": { "**/.maximo-sync": true },
+    "files.watcherExclude": { "**/.maximo-sync/**": true },
+    "files.eol": "\n",
+
+    "maximoSync.autoApplyNonConflicting": false,
+    "maximoSync.checkOnStartup": true,
+    "maximoSync.checkIntervalMinutes": 30,
+
+    "[python]": { "editor.tabSize": 4, "editor.insertSpaces": true },
+    "[javascript]": { "editor.tabSize": 2 }
+  },
+  "extensions": {
+    "recommendations": [
+      "valueztech.maximo-developer",
+      "ms-python.python",
+      "redhat.vscode-xml"
+    ]
+  }
+}
